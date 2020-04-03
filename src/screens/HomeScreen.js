@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { Component } from "react";
 import { MenuButton, Logo } from "../components/header/header";
+import Categories from "../components/categories";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,6 +17,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text>Hello! Welcome to my homepage</Text>
+        <Categories />
       </View>
     );
   }

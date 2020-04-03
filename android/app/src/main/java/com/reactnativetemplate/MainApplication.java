@@ -1,4 +1,4 @@
-package com.reactnativetemplate;
+package com.GharTak;
 
 import android.app.Application;
 
