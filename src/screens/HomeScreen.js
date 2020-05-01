@@ -36,6 +36,7 @@ export default class HomeScreen extends React.Component {
         <ImageBackground
           styleName="large-banner"
           source={require('../assets/bg.jpg')}
+
         >
           <Tile>
             <TextInput
