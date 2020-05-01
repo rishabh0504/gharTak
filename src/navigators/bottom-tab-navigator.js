@@ -7,6 +7,8 @@ import {
   SearchNavigator
 } from "./screen-stack-navigators";
 
+import { Icon } from '@shoutem/ui';
+
 const getTabBarIcon = (navigation, focused, tintColor) => {
   const { routeName } = navigation.state;
   let IconComponent = Ionicons;
