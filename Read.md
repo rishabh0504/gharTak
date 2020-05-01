@@ -13,4 +13,4 @@ gradlew.bat installDebug --info
 react-native link react-native-material-kit
 
 
-
+// To react-native update  :  https://github.com/facebook/react-native/blob/0.62-stable/template/android/app/build.gradle
