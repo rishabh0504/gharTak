@@ -1,8 +1,9 @@
-import { View, StyleSheet, Dimensions } from "react-native";
+import { View, StyleSheet, Dimensions, ScrollView } from "react-native";
 import React, { Component } from "react";
 import { MenuButton, Logo } from "../components/header/header";
 
-import { Image, Tile, Title, Overlay, Subtitle, Caption, ImageBackground, TextInput, Text, Divider } from '@shoutem/ui'
+import { Image, Tile, Title, Overlay, Subtitle, Caption, Card, Row, GridRow, ImageBackground, TextInput, Text, Divider, TouchableOpacity } from '@shoutem/ui'
+import Carousel from "../common/carousel/Carousel";
 
 
 const windowHeight = Dimensions.get('window').height;
@@ -12,7 +13,38 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchText: ''
+      searchText: '',
+      restaurants: [
+        {
+          "name": "Gaspar Brasserie",
+          "address": "185 Sutter St, San Francisco, CA 94109",
+          "image": { "url": "https://shoutem.github.io/static/getting-started/restaurant-1.jpg" },
+        },
+        {
+          "name": "Chalk Point Kitchen",
+          "address": "527 Broome St, New York, NY 10013",
+          "image": { "url": "https://shoutem.github.io/static/getting-started/restaurant-2.jpg" },
+        },
+        {
+          "name": "Kyoto Amber Upper East",
+          "address": "225 Mulberry St, New York, NY 10012",
+          "image": { "url": "https://shoutem.github.io/static/getting-started/restaurant-3.jpg" },
+        }, {
+          "name": "Gaspar Brasserie",
+          "address": "185 Sutter St, San Francisco, CA 94109",
+          "image": { "url": "https://shoutem.github.io/static/getting-started/restaurant-1.jpg" },
+        },
+        {
+          "name": "Chalk Point Kitchen",
+          "address": "527 Broome St, New York, NY 10013",
+          "image": { "url": "https://shoutem.github.io/static/getting-started/restaurant-2.jpg" },
+        },
+        {
+          "name": "Kyoto Amber Upper East",
+          "address": "225 Mulberry St, New York, NY 10012",
+          "image": { "url": "https://shoutem.github.io/static/getting-started/restaurant-3.jpg" },
+        }
+      ],
     }
   }
   static navigationOptions = ({ navigation }) => {
@@ -31,23 +63,59 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
+
+    const { restaurants } = this.state;
+
+    const cellViews = restaurants.map((restaurant, id) => {
+      return (
+        <TouchableOpacity key={id} >
+          <Card>
+            <Image
+              styleName="small-avatar"
+              source={{ uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-10.png' }}
+            />
+            <View styleName="content">
+              <Caption>21 hours ago</Caption>
+            </View>
+          </Card>
+        </TouchableOpacity>
+
+      );
+    });
     return (
       <View style={styles.container}>
-        <ImageBackground
-          styleName="large-banner"
-          source={require('../assets/bg.jpg')}
+        <ScrollView>
+          <ImageBackground
+            styleName="large-banner"
+            source={require('../assets/bg.jpg')}
 
-        >
-          <Tile>
-            <TextInput
-              defaultValue={'Search...'}
-              style={styles.searchBox}
-              value={this.state.searchText}
-              onChangeText={this.searchTextHandler}
-            />
+          >
+            <Tile>
+              <TextInput
+                defaultValue={'Search...'}
+                style={styles.searchBox}
+                value={this.state.searchText}
+                onChangeText={this.searchTextHandler}
+              />
 
-          </Tile>
-        </ImageBackground>
+
+
+
+            </Tile>
+          </ImageBackground>
+          <Row style={{ marginTop: -windowHeight * 10 / 100, backgroundColor: 'transparent' }}>
+            <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} >
+              <GridRow style={{ marginLeft: 5, marginRight: 5 }} columns={5}>
+                {cellViews}
+              </GridRow>
+            </ScrollView>
+          </Row>
+
+
+
+
+        </ScrollView>
+
       </View>
     );
   }

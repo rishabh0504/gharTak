@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styles from './SideMenu.style';
 import { NavigationActions } from 'react-navigation';
 import { ScrollView, View, TouchableOpacity, Dimensions } from 'react-native';
-import { Image, Text, Row, Icon, Divider, ImageBackground, Tile, Overlay, Title, Caption, Subtitle } from '@shoutem/ui';
+import { Image, Text, Row, Icon, Divider, ImageBackground, Tile, Overlay, Title, Caption, Subtitle, TextInput } from '@shoutem/ui';
 const windowWidth = Dimensions.get('window').width;
 
 class SideMenu extends Component {
@@ -30,12 +30,15 @@ class SideMenu extends Component {
                                 source={{ uri: 'https://scontent.fdxb1-1.fna.fbcdn.net/v/t1.0-9/p960x960/50877592_2588431321242991_5234053253796200448_o.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=NKKSmqks6toAX_mR4yy&_nc_ht=scontent.fdxb1-1.fna&_nc_tp=6&oh=be7bc3f17c3768b5760a3a64af95adf0&oe=5ED0EDC5' }}
 
                             />
-                            <Subtitle styleName="mid">{''}</Subtitle>
+
+
                             <Subtitle styleName="mid">Rishabh Tiwari</Subtitle>
                         </Overlay>
                     </Tile>
 
                 </ImageBackground>
+
+
 
                 <ScrollView>
 
