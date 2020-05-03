@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 import React, { Component } from "react";
-import { MenuButton, Logo } from "../components/header/header";
+import { MenuButton, HeaderSearch } from "../components/header/header";
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -8,7 +8,7 @@ export default class ProfileScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerLeft: <MenuButton onPress={() => navigation.openDrawer()} />,
-      headerTitle: <Logo />,
+      headerTitle: <HeaderSearch />,
       headerBackTitle: "Profile",
       headerLayoutPreset: "center",
       headerStyle: { backgroundColor: 'transparent', height: windowHeight / 10 },

@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { View } from "react-native";
 const deviceWidth = Dimensions.get("window").width;
 
-export class Logo extends React.Component {
+export class HeaderSearch extends React.Component {
     render() {
         return (
             //Add your logo in the image tag

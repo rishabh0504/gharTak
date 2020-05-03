@@ -2,7 +2,7 @@ import React from "react";
 import { createDrawerNavigator, createAppContainer } from "react-navigation";
 import BottomTabNavigator from "./bottom-tab-navigator";
 import { SettingsNavigator } from "./screen-stack-navigators";
-import { Logo } from "../components/header/header";
+import { HeaderSearch } from "../components/header/header";
 import { Dimensions } from 'react-native';
 import SideMenu from '../common/SideMenu'
 const windowWidth = Dimensions.get('window').width;

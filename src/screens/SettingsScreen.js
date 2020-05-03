@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { Component } from "react";
-import { MenuButton, Logo } from "../components/header/header";
+import { MenuButton, HeaderSearch } from "../components/header/header";
 import { HeaderBackButton } from "react-navigation";
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     return {
       headerLeft: <HeaderBackButton onPress={() => navigation.goBack(null)} />,
-      headerTitle: <Logo />,
+      headerTitle: <HeaderSearch />,
       headerBackTitle: "Settings",
       headerLayoutPreset: "center"
     };

@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 import React, { Component } from "react";
-import { MenuButton, Logo } from "../components/header/header";
+import { MenuButton, HeaderSearch } from "../components/header/header";
 import categoryItems from '../menus/categoryItems';
 import { Card, ListItem, Button, Icon } from 'react-native-elements'
 
