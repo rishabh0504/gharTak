@@ -34,7 +34,6 @@ class SideMenu extends Component {
                             <Subtitle styleName="mid">Rishabh Tiwari</Subtitle>
                         </Overlay>
                     </Tile>
-
                 </ImageBackground>
 
 
@@ -55,33 +54,6 @@ class SideMenu extends Component {
                     </TouchableOpacity>
                     <Divider styleName="line" />
 
-                    <TouchableOpacity onPress={this.navigateToScreen('Profile')}>
-                        <View >
-                            <Row styleName="small" >
-                                <Image
-                                    styleName="small-avatar rounded-corners"
-                                    source={{ uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-9.png' }}
-                                />
-                                <Subtitle styleName="mid">Profile</Subtitle>
-                                <Icon styleName="disclosure" name="right-arrow" />
-                            </Row>
-                        </View>
-                    </TouchableOpacity>
-                    <Divider styleName="line" />
-
-                    <TouchableOpacity onPress={this.navigateToScreen('Search')}>
-                        <View >
-                            <Row styleName="small" >
-                                <Image
-                                    styleName="small-avatar rounded-corners"
-                                    source={{ uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-9.png' }}
-                                />
-                                <Subtitle styleName="mid">Your Orders</Subtitle>
-                                <Icon styleName="disclosure" name="right-arrow" />
-                            </Row>
-                        </View>
-                    </TouchableOpacity>
-                    <Divider styleName="line" />
                     <TouchableOpacity onPress={this.navigateToScreen('Settings')}>
                         <View >
                             <Row styleName="small" >
@@ -95,62 +67,46 @@ class SideMenu extends Component {
                         </View>
                     </TouchableOpacity>
                     <Divider styleName="line" />
-                    <TouchableOpacity onPress={this.navigateToScreen('Settings')}>
+                    <TouchableOpacity onPress={this.navigateToScreen('Cart')}>
                         <View >
                             <Row styleName="small" >
                                 <Image
                                     styleName="small-avatar rounded-corners"
                                     source={{ uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-9.png' }}
                                 />
-                                <Subtitle styleName="mid">Settings</Subtitle>
+                                <Subtitle styleName="mid">Cart</Subtitle>
                                 <Icon styleName="disclosure" name="right-arrow" />
                             </Row>
                         </View>
                     </TouchableOpacity>
                     <Divider styleName="line" />
-                    <TouchableOpacity onPress={this.navigateToScreen('Settings')}>
+                    <TouchableOpacity onPress={this.navigateToScreen('Order')}>
                         <View >
                             <Row styleName="small" >
                                 <Image
                                     styleName="small-avatar rounded-corners"
                                     source={{ uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-9.png' }}
                                 />
-                                <Subtitle styleName="mid">Settings</Subtitle>
+                                <Subtitle styleName="mid">Order</Subtitle>
                                 <Icon styleName="disclosure" name="right-arrow" />
                             </Row>
                         </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={this.navigateToScreen('Settings')}>
+                    <TouchableOpacity onPress={this.navigateToScreen('Chat')}>
                         <View >
                             <Row styleName="small" >
                                 <Image
                                     styleName="small-avatar rounded-corners"
                                     source={{ uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-9.png' }}
                                 />
-                                <Subtitle styleName="mid">Notifications</Subtitle>
-                                <Icon styleName="disclosure" name="right-arrow" />
-                            </Row>
-                        </View>
-                    </TouchableOpacity>
-
-                    <Divider styleName="line" />
-                    <TouchableOpacity onPress={this.navigateToScreen('Settings')}>
-                        <View >
-                            <Row styleName="small" >
-                                <Image
-                                    styleName="small-avatar rounded-corners"
-                                    source={{ uri: 'https://shoutem.github.io/img/ui-toolkit/examples/image-9.png' }}
-                                />
-                                <Subtitle styleName="mid">Contact us</Subtitle>
+                                <Subtitle styleName="mid">Chat US</Subtitle>
                                 <Icon styleName="disclosure" name="right-arrow" />
                             </Row>
                         </View>
                     </TouchableOpacity>
 
                     <Divider styleName="line" />
-
-
 
                 </ScrollView>
                 <Divider styleName="line" />

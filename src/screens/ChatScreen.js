@@ -4,7 +4,7 @@ import { MenuButton, HeaderSearch } from "../components/header/header";
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
-export default class ChatBotScreen extends React.Component {
+export default class ChatScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
             headerLeft: <MenuButton onPress={() => navigation.openDrawer()} />,

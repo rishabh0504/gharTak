@@ -23,6 +23,16 @@ export class MenuButton extends React.Component {
     }
 }
 
+export class RightMenuButton extends React.Component {
+    render() {
+        return (
+            <TouchableOpacity onPress={this.props.onPress} ><Icon name="md-cart" size={40} style={{ color: 'white', marginRight: deviceWidth / 20 }} /></TouchableOpacity>
+        );
+    }
+}
+
+
+
 /*
 <View >
                 <Image

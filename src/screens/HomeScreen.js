@@ -1,6 +1,6 @@
 import { View, StyleSheet, Dimensions, ScrollView } from "react-native";
 import React, { Component } from "react";
-import { MenuButton, HeaderSearch } from "../components/header/header";
+import { MenuButton, HeaderSearch, RightMenuButton } from "../components/header/header";
 import { Avatar } from "react-native-elements";
 import { Image, Tile, Title, Overlay, Subtitle, Caption, Card, Row, GridRow, ImageBackground, TextInput, Text, Divider, TouchableOpacity } from '@shoutem/ui'
 
@@ -65,6 +65,7 @@ export default class HomeScreen extends React.Component {
       headerBackTitle: "Profile",
       headerLayoutPreset: "center",
       headerStyle: { backgroundColor: 'transparent', height: windowHeight / 10 },
+      headerRight: <RightMenuButton onPress={() => navigation.navigate('Cart')} />,
 
     };
   };
