@@ -31,7 +31,6 @@ class SideMenu extends Component {
 
                             />
 
-
                             <Subtitle styleName="mid">Rishabh Tiwari</Subtitle>
                         </Overlay>
                     </Tile>
