@@ -146,13 +146,14 @@ export default class HomeScreen extends React.Component {
   _renderItem({ item, index }) {
     return (
       <ImageBackground
-        styleName="medium"
+        styleName="large"
         source={{ uri: 'https://shoutem.github.io/static/getting-started/restaurant-2.jpg' }}
+        key={index}
       >
         <Tile>
           <Overlay>
-            <Title styleName="md-gutter-bottom">Chalk Point Kitchen</Title>
-            <Caption>527 Broome St, New York, NY 10013</Caption>
+            <Title styleName="md-gutter-bottom">{item.title}</Title>
+            <Caption>{item.text}</Caption>
           </Overlay>
         </Tile>
       </ImageBackground>
@@ -214,7 +215,7 @@ export default class HomeScreen extends React.Component {
         finalCategories.push(<Row style={{ marginBottom: 5 }}>{columns}</Row>)
         columns = [];
         columns.push(
-          <Col style={{ width: individualWidth }}>
+          <Col style={{ width: individualWidth }} key={index}>
             <TouchableOpacity key={index} >
               <View style={{ justifyContent: 'center', flex: 1 }}>
                 <Grid>
@@ -273,13 +274,13 @@ export default class HomeScreen extends React.Component {
 
           <Divider styleName="line" />
           <Caption style={styles.subtitle}>Offers For You</Caption>
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', }}>
+          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', marginLeft: windowWidth / 20, marginRight: windowWidth / 20, borderRadius: 4 }}>
             <Carousel
               layout={"default"}
               ref={ref => this.carousel = ref}
               data={this.state.carouselItems}
-              sliderWidth={300}
-              itemWidth={300}
+              sliderWidth={windowWidth}
+              itemWidth={windowWidth}
               renderItem={this._renderItem}
               onSnapToItem={index => this.setState({ activeIndex: index })} />
           </View>
