@@ -2,7 +2,7 @@ import { View, StyleSheet, Dimensions, ScrollView, SafeAreaView } from "react-na
 import React, { Component } from "react";
 import { MenuButton, HeaderSearch, RightMenuButton } from "../components/header/header";
 import { Avatar } from "react-native-elements";
-import { Image, Tile, Title, Overlay, Subtitle, Caption, Card, GridRow, ImageBackground, TextInput, Text, Divider, TouchableOpacity } from '@shoutem/ui'
+import { Image, Tile, Icon, Title, Overlay, Subtitle, Caption, Card, Button, Heading, GridRow, ImageBackground, TextInput, Text, Divider, TouchableOpacity } from '@shoutem/ui'
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Carousel from 'react-native-snap-carousel';
 
@@ -149,12 +149,13 @@ export default class HomeScreen extends React.Component {
         styleName="large"
         source={{ uri: 'https://shoutem.github.io/static/getting-started/restaurant-2.jpg' }}
         key={index}
+
       >
-        <Tile>
-          <Overlay>
-            <Title styleName="md-gutter-bottom">{item.title}</Title>
-            <Caption>{item.text}</Caption>
-          </Overlay>
+        <Tile >
+          <Title styleName="md-gutter-top">{item.text}</Title>
+          <Subtitle styleName="line-through sm-gutter-top">$280.00</Subtitle>
+          <Heading>$250.00</Heading>
+          <Button styleName="md-gutter-top"><Icon name="cart" /><Text>ADD TO CART</Text></Button>
         </Tile>
       </ImageBackground>
     )
@@ -256,6 +257,7 @@ export default class HomeScreen extends React.Component {
             </Tile>
           </ImageBackground>
           <Caption style={styles.subtitle}>Frequent Orders</Caption>
+
           <Row style={{ backgroundColor: 'transparent' }}>
             <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ marginTop: 10 }} >
               <GridRow style={{ marginLeft: 5, marginRight: 5 }} columns={20}>
@@ -264,17 +266,19 @@ export default class HomeScreen extends React.Component {
             </ScrollView>
           </Row>
 
-          <Divider styleName="line" />
+
           <Caption style={styles.subtitle}>Categories</Caption>
+
           <View style={styles.flexContainer}>
             <Grid style={{ width: windowWidth - 10 }}>
               {finalCategories}
             </Grid>
           </View>
 
-          <Divider styleName="line" />
+
           <Caption style={styles.subtitle}>Offers For You</Caption>
-          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', marginLeft: windowWidth / 20, marginRight: windowWidth / 20, borderRadius: 4 }}>
+
+          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', margin: 10, borderRadius: 4 }}>
             <Carousel
               layout={"default"}
               ref={ref => this.carousel = ref}
@@ -284,8 +288,8 @@ export default class HomeScreen extends React.Component {
               renderItem={this._renderItem}
               onSnapToItem={index => this.setState({ activeIndex: index })} />
           </View>
-        </ScrollView>
 
+        </ScrollView>
       </View>
     );
   }
@@ -302,11 +306,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     margin: 10,
     borderRadius: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.8,
-    elevation: 2,
-    paddingTop: 20,
     paddingBottom: 10
   },
 
@@ -349,3 +348,14 @@ const styles = StyleSheet.create({
             </ScrollView>
 
 */
+
+
+/**
+ shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    elevation: 2,
+
+
+
+ */
