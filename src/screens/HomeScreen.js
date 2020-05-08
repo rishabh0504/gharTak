@@ -2,11 +2,13 @@ import { View, StyleSheet, Dimensions, ScrollView } from "react-native";
 import React, { Component } from "react";
 import { MenuButton, HeaderSearch, RightMenuButton } from "../components/header/header";
 import { Avatar } from "react-native-elements";
-import { Image, Tile, Title, Overlay, Subtitle, Caption, Card, Row, GridRow, ImageBackground, TextInput, Text, Divider, TouchableOpacity } from '@shoutem/ui'
+import { Image, Tile, Title, Overlay, Subtitle, Caption, Card, GridRow, ImageBackground, TextInput, Text, Divider, TouchableOpacity } from '@shoutem/ui'
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
+const individualWidth = (windowWidth - 20) / 5;
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -52,9 +54,9 @@ export default class HomeScreen extends React.Component {
           "url": "https://images.all-free-download.com/images/graphiclarge/whole_grains_01_hd_picture_166514.jpg"
         },
         {
-          "name": "Bread",
-          "image": { "url": "http://www.baltana.com/files/wallpapers-5/Bread-HQ-Desktop-Wallpaper-16626.jpg" },
-        }
+          "name": "Grocery",
+          "url": "https://images.all-free-download.com/images/graphiclarge/whole_grains_01_hd_picture_166514.jpg"
+        },
       ],
     }
   }
@@ -78,23 +80,60 @@ export default class HomeScreen extends React.Component {
 
     const { categories } = this.state;
 
-    const cellViews = categories.map((category, id) => {
-      return (
-        <TouchableOpacity key={id} >
-          <View style={{ marginLeft: 5, marginRight: 5, justifyContent: 'center', flex: 1 }}>
-            <Avatar
-              rounded
-              size="medium"
-              source={{
-                uri:
-                  category.url,
-              }}
-            />
-            <Caption style={{ textAlign: 'center' }} >{category.name} </Caption>
-          </View>
-        </TouchableOpacity>
+    let columns = [];
+    const finalCategories = [];
+    const cellViews = categories.map((category, index) => {
+      if ((index) % 5 !== 0) {
+        columns.push(
+          <Col style={{ width: individualWidth }} >
+            <TouchableOpacity key={index} >
+              <View style={{ justifyContent: 'center', flex: 1, alignContent: 'center' }}>
+                <Grid>
+                  <Row style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <Avatar
+                      rounded
+                      size="medium"
+                      source={{
+                        uri:
+                          category.url,
+                      }}
+                    />
+                  </Row>
+                </Grid>
+                <Caption style={{ textAlign: 'center' }} >{category.name} </Caption>
+              </View>
+            </TouchableOpacity>
+          </Col>
+        )
+        if (index === categories.length - 1) {
+          finalCategories.push(<Row style={{ marginBottom: 5 }}>{columns}</Row>)
+        }
+      } else {
+        finalCategories.push(<Row style={{ marginBottom: 5 }}>{columns}</Row>)
+        columns = [];
+        columns.push(
+          <Col style={{ width: individualWidth }}>
+            <TouchableOpacity key={index} >
+              <View style={{ justifyContent: 'center', flex: 1 }}>
+                <Grid>
+                  <Row style={{ alignItems: 'center', justifyContent: 'center' }}>
+                    <Avatar
+                      rounded
+                      size="medium"
+                      source={{
+                        uri:
+                          category.url,
+                      }}
+                    />
+                  </Row>
+                </Grid>
+                <Caption style={{ textAlign: 'center' }} >{category.name} </Caption>
+              </View>
+            </TouchableOpacity>
+          </Col>
+        )
+      }
 
-      );
     });
     return (
       <View style={styles.container}>
@@ -113,13 +152,12 @@ export default class HomeScreen extends React.Component {
             </Tile>
           </ImageBackground>
 
-          <Row style={{ backgroundColor: 'transparent' }}>
-            <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ marginTop: 10 }} >
-              <GridRow style={{ marginLeft: 5, marginRight: 5 }} columns={20}>
-                {cellViews}
-              </GridRow>
-            </ScrollView>
-          </Row>
+          <Title style={styles.subtitle}>Categories</Title>
+          <View style={styles.flexContainer}>
+            <Grid style={{ width: windowWidth - 10 }}>
+              {finalCategories}
+            </Grid>
+          </View>
         </ScrollView>
 
       </View>
@@ -131,6 +169,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: -windowHeight / 10
+  },
+  flexContainer: {
+    flex: 1,
+    alignContent: 'center',
+    justifyContent: 'center',
+    margin: 10,
+    borderRadius: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    elevation: 2,
+    paddingTop: 20,
+    paddingBottom: 10
+  },
+
+  subtitle: {
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 2,
+    marginLeft: 10
   },
   yourStyle: {
     marginTop: 0
@@ -153,3 +211,14 @@ const styles = StyleSheet.create({
     padding: 10,
   }
 });
+
+
+/*
+
+<ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ marginTop: 10 }} >
+              <GridRow style={{ marginLeft: 5, marginRight: 5 }} columns={20}>
+                {cellViews}
+              </GridRow>
+            </ScrollView>
+
+*/
