@@ -1,9 +1,10 @@
-import { View, StyleSheet, Dimensions, ScrollView } from "react-native";
+import { View, StyleSheet, Dimensions, ScrollView, SafeAreaView } from "react-native";
 import React, { Component } from "react";
 import { MenuButton, HeaderSearch, RightMenuButton } from "../components/header/header";
 import { Avatar } from "react-native-elements";
 import { Image, Tile, Title, Overlay, Subtitle, Caption, Card, GridRow, ImageBackground, TextInput, Text, Divider, TouchableOpacity } from '@shoutem/ui'
 import { Col, Row, Grid } from "react-native-easy-grid";
+import Carousel from 'react-native-snap-carousel';
 
 
 const windowHeight = Dimensions.get('window').height;
@@ -100,6 +101,29 @@ export default class HomeScreen extends React.Component {
           "url": "https://images.all-free-download.com/images/graphiclarge/whole_grains_01_hd_picture_166514.jpg"
         },
       ],
+      activeIndex: 0,
+      carouselItems: [
+        {
+          title: "Item 1",
+          text: "Text 1",
+        },
+        {
+          title: "Item 2",
+          text: "Text 2",
+        },
+        {
+          title: "Item 3",
+          text: "Text 3",
+        },
+        {
+          title: "Item 4",
+          text: "Text 4",
+        },
+        {
+          title: "Item 5",
+          text: "Text 5",
+        },
+      ]
     }
   }
   static navigationOptions = ({ navigation }) => {
@@ -116,6 +140,23 @@ export default class HomeScreen extends React.Component {
 
   searchTextHandler = (searchText) => {
     this.setState({ searchText: searchText })
+  }
+
+
+  _renderItem({ item, index }) {
+    return (
+      <ImageBackground
+        styleName="medium"
+        source={{ uri: 'https://shoutem.github.io/static/getting-started/restaurant-2.jpg' }}
+      >
+        <Tile>
+          <Overlay>
+            <Title styleName="md-gutter-bottom">Chalk Point Kitchen</Title>
+            <Caption>527 Broome St, New York, NY 10013</Caption>
+          </Overlay>
+        </Tile>
+      </ImageBackground>
+    )
   }
 
   render() {
@@ -228,6 +269,19 @@ export default class HomeScreen extends React.Component {
             <Grid style={{ width: windowWidth - 10 }}>
               {finalCategories}
             </Grid>
+          </View>
+
+          <Divider styleName="line" />
+          <Caption style={styles.subtitle}>Offers For You</Caption>
+          <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', }}>
+            <Carousel
+              layout={"default"}
+              ref={ref => this.carousel = ref}
+              data={this.state.carouselItems}
+              sliderWidth={300}
+              itemWidth={300}
+              renderItem={this._renderItem}
+              onSnapToItem={index => this.setState({ activeIndex: index })} />
           </View>
         </ScrollView>
 
