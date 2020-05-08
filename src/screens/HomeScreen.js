@@ -127,7 +127,6 @@ export default class HomeScreen extends React.Component {
         <TouchableOpacity key={index} >
           <View style={{ marginLeft: 5, marginRight: 5, justifyContent: 'center', flex: 1 }}>
             <Avatar
-              rounded
               size="medium"
               source={{
                 uri:
@@ -214,7 +213,7 @@ export default class HomeScreen extends React.Component {
               />
             </Tile>
           </ImageBackground>
-          <Caption style={styles.subtitle}>Frequent Categories</Caption>
+          <Caption style={styles.subtitle}>Frequent Orders</Caption>
           <Row style={{ backgroundColor: 'transparent' }}>
             <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ marginTop: 10 }} >
               <GridRow style={{ marginLeft: 5, marginRight: 5 }} columns={20}>
@@ -223,6 +222,7 @@ export default class HomeScreen extends React.Component {
             </ScrollView>
           </Row>
 
+          <Divider styleName="line" />
           <Caption style={styles.subtitle}>Categories</Caption>
           <View style={styles.flexContainer}>
             <Grid style={{ width: windowWidth - 10 }}>
