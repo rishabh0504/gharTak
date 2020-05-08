@@ -289,6 +289,24 @@ export default class HomeScreen extends React.Component {
               onSnapToItem={index => this.setState({ activeIndex: index })} />
           </View>
 
+          <View style={{ flex: 1, margin: 10 }}>
+
+            <Grid>
+              <Row>
+                <Col style={{ width: windowWidth * 10 / 100 }}><Icon name="call" style={{ color: 'green' }} /></Col>
+                <Col >
+                  <Caption style={styles.message}> 24x7 Online Support</Caption>
+                </Col>
+              </Row>
+              <Row>
+                <Col style={{ width: windowWidth * 10 / 100 }}><Icon name="settings" style={{ color: 'green' }} /></Col>
+                <Col>
+                  <Caption style={styles.message}> Security</Caption>
+                </Col>
+              </Row>
+            </Grid>
+          </View>
+
         </ScrollView>
       </View>
     );
@@ -314,6 +332,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 2,
     marginLeft: 10,
+    fontSize: 15
+  },
+  message: {
+    flex: 1,
     fontSize: 15
   },
   yourStyle: {
